@@ -37,7 +37,16 @@ class MedewerkerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $medewerker = new medewerker([
+            'VoorNaam'=> $request->VoorNaam,
+            'AchterNaam'=> $request->AchterNaam,
+            'Bedrijf'=> $request->Bedrijf,
+            'Email'=> $request->Email,
+            'Telefoon'=> $request->Telefoon
+        ]);
+
+        $medewerker->save();
+        return redirect('/medewerkers');
     }
 
     /**

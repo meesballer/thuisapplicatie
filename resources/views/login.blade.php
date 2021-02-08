@@ -1,22 +1,46 @@
-<h1>Sign In</h1>
+<html>
 
-@if ($errors->any ())
+<head>
+    <title>Login Form</title>
+</head>
 
-    <ul>
+<body>
 
-        {{implode ('', $errors->all ('<li>: message</li>'))}}
-
-    </ul>
-
+@if (count($errors) > 0)
+    <div class = "alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
 @endif
 
-{{Form::open (array ('url' => 'logincheck'))}}
+<?php
+echo Form::open(array('url'=>'/validation'));
+?>
 
-<p> {{Form::text ('gebruikersnaam', ‘‘, array ('placeholder'=>'Gebruikersnaam','maxlength'=>30))}} </p>
+<table border = '1'>
+    <tr>
+        <td align = 'center' colspan = '2'>Login</td>
+    </tr>
+    <tr>
+        <td>Gebruikersnaam</td>
+        <td><?php echo Form::text('username'); ?></td>
+    </tr>
+    <tr>
+        <td>Wachtwoord</td>
+        <td><?php echo Form::password('password'); ?></td>
+    </tr>
+    <tr>
+        <td align = 'center' colspan = '2'
+        ><?php echo Form::submit('Login'); ?  ></td>
+         </tr>
+      </table>
 
-<p> {{Form::wachtwoord ('wachtwoord', array('placeholder'=>'Wachtwoord','maxlength'=>30)) }} </p>
+      <?php
+         echo Form::close();
+      ?>
 
-<p> {{Form::submit ('Inloggen')}} </p>
-
-{{Form::close ()}}
--
+</body>
+</html>

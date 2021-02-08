@@ -19,3 +19,5 @@ Route::get('/', function () {
 
 Route::resource('Medewerkers', 'MedewerkerController');
 Route::resource('Bedrijvens', 'BedrijvenController');
+Route::get('validation','ValidationController@showform');
+Route::post('validation','ValidationController@validateform');

@@ -15,7 +15,8 @@ class BedrijvenController extends Controller
      */
     public function index()
     {
-        //
+        $bedrijven = bedrijven::all();
+        return view('Bedrijvens.index', compact('bedrijven'));
     }
 
     /**
@@ -25,7 +26,7 @@ class BedrijvenController extends Controller
      */
     public function create()
     {
-        //
+        return view('Bedrijvens.create');
     }
 
     /**

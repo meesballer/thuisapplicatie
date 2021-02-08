@@ -1,27 +1,28 @@
 @extends('app')
 
 @section('content')
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" />
     <form method="post" action="{{ route('Medewerkers.store') }}">
         <div class="form-group">
             @csrf
-            <label>Naam</label>
+            <label>Voornaam</label>
             <input type="text" class="form-control" name="VoorNaam"/>
         </div>
         <div class="form-group">
-            <label>Adres</label>
+            <label>Achternaam</label>
             <input type="text" class="form-control" name="AchterNaam"/>
         </div>
         <div class="form-group">
-            <label>PostCode</label>
+            <label>Bedrijf</label>
             <input type="text" class="form-control" name=Bedrijf"/>
         </div>
         <div class="form-group">
-            <label>Woonplaats</label>
-            <input type="text" class="form-control" name="Telefoon"/>
+            <label>Email</label>
+            <input type="text" class="form-control" name="Email"/>
         </div>
         <div class="form-group">
-            <label>E-mail</label>
-            <input type="text" class="form-control" name="Email"/>
+            <label>Telefoon</label>
+            <input type="text" class="form-control" name="Telefoon"/>
         </div>
 
         <button type="submit" class="btn btn-primary">Toevoegen</button>

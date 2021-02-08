@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-    <form method="post" action="{{ route('mederwerkers.store') }}">
+    <form method="post" action="{{ route('Bedrijvens.store') }}">
         <div class="form-group">
             @csrf
             <label>Naam</label>
