@@ -33,8 +33,8 @@ echo Form::open(array('url'=>'/validation'));
         <td><?php echo Form::password('password'); ?></td>
     </tr>
     <tr>
-        <td align = 'center' colspan = '2'
-        ><?php echo Form::submit('Login'); ?  ></td>
+        <td align = 'center' colspan = '2'>
+         <?php echo Form::submit('Login'); ?  ></td>
          </tr>
       </table>
 

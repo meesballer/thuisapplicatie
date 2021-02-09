@@ -14,10 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
 
 Route::resource('Medewerkers', 'MedewerkerController');
 Route::resource('Bedrijvens', 'BedrijvenController');
-Route::get('validation','ValidationController@showform');
-Route::post('validation','ValidationController@validateform');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

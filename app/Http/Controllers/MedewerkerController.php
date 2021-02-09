@@ -68,7 +68,9 @@ class MedewerkerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $medewerker = Medewerker::find($id);
+        return view('Medewerkers.edit', compact('medewerker'));
+
     }
 
     /**
