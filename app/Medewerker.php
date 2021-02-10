@@ -11,7 +11,7 @@ class Medewerker extends Model
     protected $fillable = [
         'VoorNaam',
         'AchterNaam',
-        'Bedrijf',
+        'Bedrijven_id',
         'Email',
         'Telefoon'
     ];

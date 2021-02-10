@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('home');
 });
 
 Route::resource('Medewerkers', 'MedewerkerController');
-Route::resource('Bedrijvens', 'BedrijvenController');
+Route::resource('Bedrijfs', 'BedrijfController');
 
 Auth::routes();
 

@@ -17,7 +17,7 @@ class CreateMedewerkersTable extends Migration
             $table->id();
             $table->string('VoorNaam');
             $table->string('AchterNaam');
-            $table->string('Bedrijf');
+            $table->integer('Bedrijfs_id');
             $table->string('Email');
             $table->string('Telefoon');
             $table->timestamps();

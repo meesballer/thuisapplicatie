@@ -14,7 +14,14 @@
         </div>
         <div class="form-group">
             <label>Bedrijf</label>
-            <input type="text" class="form-control" name=Bedrijf"/>
+            <select class="form-control"
+                    name="Bedrijven_id"
+                    selected="{{ $Bedrijf->Bedrijf_id ?? 0 }}">
+                <option value="{{ -1 }}">{{ 'Kies een Bedrijf' }}</option>
+                @foreach ($Bedrijven as $Bedrijf)
+                    <option value="{{ $Bedrijf->id }}" {{ ($medewerker->Bedrijven_id ?? -1) == $Bedrijven->id ? "selected":"" }}>{{ $Bedrijven->naam }}</option>
+                @endforeach
+            </select>
         </div>
         <div class="form-group">
             <label>Email</label>

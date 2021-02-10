@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Bedrijf;
 use App\Medewerker;
 
 class MedewerkerController extends Controller
@@ -26,7 +27,8 @@ class MedewerkerController extends Controller
      */
     public function create()
     {
-        return view('Medewerkers.create');
+        $Bedrijven = bedrijf::all();
+        return view('Medewerkers.create', compact('Bedrijven'));
     }
 
     /**
@@ -82,7 +84,15 @@ class MedewerkerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $medewerker = medewerker::find($id);
+        $medewerker->VoorNaam = $request->VoorNaam;
+        $medewerker->AchterNaam = $request->AchterNaam;
+        $medewerker->Bedrijf = $request->Bedrijf;
+        $medewerker->Email = $request->Email;
+        $medewerker->Telefoon = $request->Telefoon;
+        $medewerker->save();
+        return redirect('/medewerkers');
+
     }
 
     /**

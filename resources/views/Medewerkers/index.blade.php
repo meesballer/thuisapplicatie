@@ -1,6 +1,7 @@
 @extends('app')
 
 @section('content')
+
     <table class="table">
         <thead>
         <tr>

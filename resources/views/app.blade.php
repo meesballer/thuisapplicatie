@@ -7,7 +7,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" />
     <ul>
         <li><a href="{{ route('Medewerkers.index')}}">Medewerkers</a></li>
-        <li><a href="{{ route('Bedrijvens.index')}}" >Bedrijven</a></li>
+        <li><a href="{{ route('Bedrijfs.index')}}" >Bedrijven</a></li>
     </ul>
 </head>
 <body>

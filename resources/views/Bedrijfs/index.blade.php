@@ -12,13 +12,11 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($bedrijfs as $bedrijf)
+        @foreach($bedrijven as $bedrijf)
             <tr>
-                <td>{{$bedrijf->VoorNaam}}</td>
-                <td>{{$bedrijf->AchterNaam}}</td>
-                <td>{{$bedrijf->Bedrijf}}</td>
+                <td>{{$bedrijf->Naam}}</td>
                 <td>{{$bedrijf->Email}}</td>
-                <td>{{$bedrijf->Telefoon}}</td>
+                <td>{{$bedrijf->Website}}</td>
                 <td><a href="{{ route('bedrijfs.edit',$bedrijf->id)}}" class="btn btn-primary">Wijzig</a></td>
             </tr>
         @endforeach

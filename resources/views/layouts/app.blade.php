@@ -60,6 +60,8 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+                                    <a class="dropdown-item" href="{{ route('Medewerkers.index') }}">{{ __('Medewerkers') }}</a>
+                                    <a class="dropdown-item" href="{{ route('Bedrijfs.index') }}">{{ __('Bedrijven') }}</a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
