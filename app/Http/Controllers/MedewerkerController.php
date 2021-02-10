@@ -17,7 +17,8 @@ class MedewerkerController extends Controller
     public function index()
     {
         $medewerkers = medewerker::all();
-        return view('Medewerkers.index', compact('medewerkers'));
+        $bedrijven = bedrijf::all();
+        return view('Medewerkers.index', compact('medewerkers', 'bedrijven'));
     }
 
     /**
@@ -27,8 +28,8 @@ class MedewerkerController extends Controller
      */
     public function create()
     {
-        $Bedrijven = bedrijf::all();
-        return view('Medewerkers.create', compact('Bedrijven'));
+        $bedrijven = bedrijf::all();
+        return view('Medewerkers.create', compact('bedrijven'));
     }
 
     /**
@@ -42,13 +43,13 @@ class MedewerkerController extends Controller
         $medewerker = new medewerker([
             'VoorNaam'=> $request->VoorNaam,
             'AchterNaam'=> $request->AchterNaam,
-            'Bedrijf'=> $request->Bedrijf,
+            'bedrijfs_id'=> $request->bedrijfs_id,
             'Email'=> $request->Email,
             'Telefoon'=> $request->Telefoon
         ]);
 
         $medewerker->save();
-        return redirect('/medewerkers');
+        return redirect('Medewerkers');
     }
 
     /**
@@ -71,7 +72,8 @@ class MedewerkerController extends Controller
     public function edit($id)
     {
         $medewerker = Medewerker::find($id);
-        return view('Medewerkers.edit', compact('medewerker'));
+        $bedrijven = bedrijf::all();
+        return view('Medewerkers.edit', compact('medewerker', 'bedrijven'));
 
     }
 
@@ -87,11 +89,11 @@ class MedewerkerController extends Controller
         $medewerker = medewerker::find($id);
         $medewerker->VoorNaam = $request->VoorNaam;
         $medewerker->AchterNaam = $request->AchterNaam;
-        $medewerker->Bedrijf = $request->Bedrijf;
+        $medewerker->bedrijfs_id = $request->bedrijfs_id;
         $medewerker->Email = $request->Email;
         $medewerker->Telefoon = $request->Telefoon;
         $medewerker->save();
-        return redirect('/medewerkers');
+        return redirect('Medewerkers');
 
     }
 
@@ -103,6 +105,8 @@ class MedewerkerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $medewerker = medewerker::findOrFail($id);
+        $medewerker->delete();
+        return redirect('Medewerkers');
     }
 }

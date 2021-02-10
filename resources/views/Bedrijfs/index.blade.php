@@ -5,10 +5,9 @@
         <thead>
         <tr>
             <td>Naam</td>
-            <td>Adres</td>
-            <td>Postcode</td>
-            <td>Woonplaats</td>
-            <td>email</td>
+            <td>Email</td>
+            <td>Website</td>
+            <td><a href="{{ route('Bedrijfs.create')}}" class="btn btn-primary">Nieuw bedrijf toevoegen</a></td>
         </tr>
         </thead>
         <tbody>
@@ -17,7 +16,7 @@
                 <td>{{$bedrijf->Naam}}</td>
                 <td>{{$bedrijf->Email}}</td>
                 <td>{{$bedrijf->Website}}</td>
-                <td><a href="{{ route('bedrijfs.edit',$bedrijf->id)}}" class="btn btn-primary">Wijzig</a></td>
+                <td><a href="{{ route('Bedrijfs.edit',$bedrijf->id)}}" class="btn btn-primary">Wijzig</a></td>
             </tr>
         @endforeach
         </tbody>

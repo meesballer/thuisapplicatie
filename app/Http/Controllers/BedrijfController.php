@@ -14,7 +14,7 @@ class BedrijfController extends Controller
      */
     public function index()
     {
-        $bedrijven = Bedrijf::all();
+        $bedrijven = bedrijf::all();
         return view('Bedrijfs.index', compact('bedrijven'));
     }
 
@@ -36,67 +36,71 @@ class BedrijfController extends Controller
      */
     public function store(Request $request)
     {
-        $Bedrijven = new bedrijf([
+        $bedrijf = new bedrijf([
             'Naam' => $request->Naam,
             'Email' => $request->Email,
             'Website' => $request->Website
         ]);
+        $bedrijf->save();
+        return redirect('/Bedrijfs');
     }
 
-        /**
-         * Display the specified resource.
-         *
-         * @param int $id
-         * @return \Illuminate\Http\Response
-         */
-        public
-        function show($id)
-        {
-            //
-        }
-
-        /**
-         * Show the form for editing the specified resource.
-         *
-         * @param int $id
-         * @return \Illuminate\Http\Response
-         */
-        public
-        function edit($id)
-        {
-            $bedrijf = Bedrijf::find($id);
-            return view('Bedrijfs.edit', compact('bedrijf'));
-        }
-
-        /**
-         * Update the specified resource in storage.
-         *
-         * @param \Illuminate\Http\Request $request
-         * @param int $id
-         * @return \Illuminate\Http\Response
-         */
-        public
-        function update(Request $request, $id)
-        {
-            $bedrijf = Bedrijf::find($id);
-            $bedrijf->Naam = $request->Naam;
-            $bedrijf->Email = $request->Email;
-            $bedrijf->Website = $request->Website;
-
-            $bedrijf->save();
-            return redirect('/bedrijfs');
-        }
-
-        /**
-         * Remove the specified resource from storage.
-         *
-         * @param int $id
-         * @return \Illuminate\Http\Response
-         */
-        public
-        function destroy($id)
-        {
-            //
-        }
+    /**
+     * Display the specified resource.
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public
+    function show($id)
+    {
+        //
     }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public
+    function edit($id)
+    {
+        $bedrijf = bedrijf::find($id);
+        return view('Bedrijfs.edit', compact('bedrijf'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public
+    function update(Request $request, $id)
+    {
+        $bedrijf = bedrijf::find($id);
+        $bedrijf->Naam = $request->Naam;
+        $bedrijf->Email = $request->Email;
+        $bedrijf->Website = $request->Website;
+
+        $bedrijf->save();
+        return redirect('Bedrijfs');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public
+    function destroy($id)
+    {
+        $bedrijf = bedrijf::findOrFail($id);
+        $bedrijf->delete();
+        return redirect('Bedrijfs');
+    }
+}
 

@@ -11,8 +11,12 @@ class Medewerker extends Model
     protected $fillable = [
         'VoorNaam',
         'AchterNaam',
-        'Bedrijven_id',
+        'bedrijfs_id',
         'Email',
         'Telefoon'
     ];
+    public function Bedrijf()
+    {
+        return $this->belongsTo('App\Bedrijf');
+    }
 }

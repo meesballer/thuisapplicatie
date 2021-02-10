@@ -6,30 +6,30 @@
         <div class="form-group">
             @csrf
             <label>Voornaam</label>
-            <input type="text" class="form-control" name="VoorNaam"/>
+            <input type="text" class="form-control" name="VoorNaam" required/>
+
         </div>
         <div class="form-group">
             <label>Achternaam</label>
-            <input type="text" class="form-control" name="AchterNaam"/>
+            <input type="text" class="form-control" name="AchterNaam" required/>
         </div>
         <div class="form-group">
             <label>Bedrijf</label>
-            <select class="form-control"
-                    name="Bedrijven_id"
-                    selected="{{ $Bedrijf->Bedrijf_id ?? 0 }}">
-                <option value="{{ -1 }}">{{ 'Kies een Bedrijf' }}</option>
-                @foreach ($Bedrijven as $Bedrijf)
-                    <option value="{{ $Bedrijf->id }}" {{ ($medewerker->Bedrijven_id ?? -1) == $Bedrijven->id ? "selected":"" }}>{{ $Bedrijven->naam }}</option>
+            <select name="bedrijfs_id" id="bedrijfs_id" class="form-control">
+                <option value="{{ -1 }}">{{ 'Kies een bedrijf' }}</option>
+                @foreach($bedrijven as $bedrijf)
+                    <option value="{{$bedrijf->id}}">{{$bedrijf->Naam}}</option>
                 @endforeach
             </select>
+
         </div>
         <div class="form-group">
             <label>Email</label>
-            <input type="text" class="form-control" name="Email"/>
+            <input type="email" class="form-control" name="Email" required/>
         </div>
         <div class="form-group">
             <label>Telefoon</label>
-            <input type="text" class="form-control" name="Telefoon"/>
+            <input type="tel" class="form-control" name="Telefoon" minlength="10" maxlength="13" required/>
         </div>
 
         <button type="submit" class="btn btn-primary">Toevoegen</button>
