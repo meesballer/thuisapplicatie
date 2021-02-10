@@ -18,7 +18,7 @@
             <tr>
                 <td>{{$medewerker->VoorNaam}}</td>
                 <td>{{$medewerker->AchterNaam}}</td>
-                <td>{{$medewerker->bedrijfs_id}}</td>
+                <td>{{$medewerker->bedrijfs_id->Naam}}</td>
                 <td>{{$medewerker->Email}}</td>
                 <td>{{$medewerker->Telefoon}}</td>
                 <td><a href="{{ route('Medewerkers.edit',$medewerker->id)}}" class="btn btn-primary">Wijzig</a></td>
