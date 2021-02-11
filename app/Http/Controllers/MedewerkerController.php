@@ -17,7 +17,7 @@ class MedewerkerController extends Controller
     public function index(Request $request)
     {
         $medewerkers = medewerker::all();
-        $bedrijven = bedrijf::find($request->bedrijfs_id);
+        $bedrijven = bedrijf::where('id')->get();
         return view('Medewerkers.index', compact('medewerkers', 'bedrijven'));
     }
 
@@ -108,5 +108,9 @@ class MedewerkerController extends Controller
         $medewerker = medewerker::findOrFail($id);
         $medewerker->delete();
         return redirect('Medewerkers');
+    }
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
 }

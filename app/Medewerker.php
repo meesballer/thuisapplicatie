@@ -17,6 +17,6 @@ class Medewerker extends Model
     ];
     public function Bedrijf()
     {
-        return $this->belongsTo('App\Bedrijf');
+        return $this->belongsTo(Bedrijf::class, 'bedrijfs_id');
     }
 }

@@ -14,6 +14,6 @@ class Bedrijf extends Model
     // Een bedrijf kan meerdere medewerkers hebben
     public function medewerker()
     {
-        return $this->hasMany('App\Medewerker');
+        return $this->hasMany(Medewerker::class);
     }
 }
